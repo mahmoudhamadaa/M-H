@@ -1,672 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- 
-███    ███  █████  ██    ██ ███    ███  ██████  ██       ██   ██████ 
-████  ████ ██   ██ ██    ██ ████  ████ ██    ██ ██       ██   ██    ██
-██ ████ ██ ███████ ████████ ██ ████ ██ ██    ██ ██       ██   ██    ██
-██  ██  ██ ██   ██ ██    ██ ██  ██  ██ ██    ██  ██     ██    ██    ██
-██      ██ ██   ██ ██    ██ ██      ██  ██████     █████      ██████
-
- ██    ██  █████  ███    ███  █████  ██████    █████
- ██    ██ ██   ██ ████  ████ ██   ██ ██    ██ ██   ██
- ████████ ███████ ██ ████ ██ ███████ ██    ██ ███████
- ██    ██ ██   ██ ██  ██  ██ ██   ██ ██    ██ ██   ██
- ██    ██ ██   ██ ██      ██ ██   ██ ██████   ██   ██
-What are you doing here?! you sneaky developer... -->
-
-
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMWDE0VTD3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-H </title>
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    gtag("config", "G-YMWDE0VTD3");
-  </script>
-  
-  <meta charset="UTF-8" />
+        .header {
+            background: url('./src/webp/bg2.png') no-repeat center center/cover;
+            color: white;
+            padding: 150px 0;
+        }
 
-  <title>Mahmoud Hamada | Portfolio</title>
-  <link rel="icon" type="image/x-icon" href="src/ico/iconmh.png" />
-  <!-- aos cdn -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <!-- stylesheet -->
-  <link rel="stylesheet" href="style.css" />
-  <!-- google fonts-->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Orbitron&family=Fira+Code&family=Six+Caps" />
+        .header .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+        }
 
-<body class="body light-mode" >
-  <audio loop="" id="audioPlayer" style="display: none">
-    <source src="src/mp3/preloader.mp3" type="audio/mp3" />
-  </audio>
-  <div id="preloader"></div>
-  <noscript>Allow Javascript</noscript>
+        .header-content {
+            margin-top: 50px;
+        }
 
-  <header>
-    <div class="cursor-inner" id="cursor-inner"></div>
-    <div class="cursor-outer" id="cursor-outer"></div>
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
 
-    <div class="navbar" id="navbar">
-      <div class="hey">Hey!</div>
-      <div class="logo" tabindex="0" aria-label="Mahmoud logo">
-        <div class="logo-top">
-          <img src="src/png/nav-avatar.png" alt="animation-head" id="nav-avatar"/>
-        </div>
-      </div>
-      <div class="navbar-tabs" id="navbar-tabs">
-        <ul class="navbar-tabs-ul">
-          <li class="home activeThistab" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="100">
-            <a href="#home" tabindex="0" aria-label="Home menu button">
-              &#60;/Home&#62;
-            </a>
-          </li>
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
 
-          <li class="about" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="300">
-            <a href="#about" aria-label="about menu button">
-              &#60;/AboutMe&#62;
-            </a>
-          </li>
+        .social-media {
+            background: #f4f4f4;
+            padding: 30px 0;
+        }
 
-          <li class="skills" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="500">
-            <a href="#skills" aria-label="skills menu button">
-              &#60;/Skills&#62;
-            </a>
-          </li>
+        .social-media a {
+            color: #000000;
+            font-size: 1.5rem;
+            margin: 0 15px;
+        }
 
-          <li class="projects" class="navbar-tabs-li" data-aos="fade-down" data-aos-delay="700">
-            <a href="#projects" aria-label="projects menu button">
-              &#60;/Projects&#62;
-            </a>
-          </li>
-        </ul>
-      </div>
-      <!-- navbar tabs ends -->
-    </div>
-  </header>
-  <!-- header ends here -->
+        .features {
+            padding: 50px 0;
+        }
 
-  <main>
-    <!-- hamburger -->
-    <div class="hamburger" id="hamburger" data-aos="fade">
-      <div class="hamburgerbase">
-        <button id="hamburger-button" onclick="hamburgerMenu()" tabindex="0" aria-label="Menu Button">
-          <span class="burger-bar" id="burger-bar1"></span>
-          <span class="burger-bar" id="burger-bar2"></span>
-          <span class="burger-bar" id="burger-bar3"></span>
-        </button>
-      </div>
-    </div>
-    <!-- hamburger -->
-    <div class="mobiletogglemenu" id="mobiletogglemenu">
-      <ul class="mobile-navbar-tabs-ul" id="mobile-ul">
-        <li id="home-mobile-tab" class="mobile-navbar-tabs-li home activeThismobiletab" onclick="hidemenubyli()">
-          <a href="#home" tabindex="0" aria-label="Home menu button">
-            &#60;/Home&#62;
-          </a>
-        </li>
+        .features .feature-box {
+            background: #f4f4f4;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
 
-        <li id="aboutme-mobile-tab" class="mobile-navbar-tabs-li about" onclick="hidemenubyli()">
-          <a href="#about" tabindex="0" aria-label="about menu button">
-            &#60;/AboutMe&#62;
-          </a>
-        </li>
-        <li id="skills-mobile-tab" class="mobile-navbar-tabs-li skills" onclick="hidemenubyli()">
-          <a href="#skills" tabindex="0" aria-label="skills menu button">
-            &#60;/Skills&#62;
-          </a>
-        </li>
-        <li id="projects-mobile-tab" class="mobile-navbar-tabs-li projects" onclick="hidemenubyli()">
-          <a href="#projects" tabindex="0" aria-label="projects menu button">
-            &#60;/Projects&#62;
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- mobile toggle menu ends -->
-    <section class="landing-page-container" id="home">
-      <div class="blob"></div>
+        .features .feature-box i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
 
-      <div class="text-content">
-        <article id="hello-friend" data-aos="fade-up" data-aos-delay="0">
-          <p class="jello">N</p>
-          <p class="jello">a</p>
-          <p class="jello">m</p>
-          <p class="jello">a</p>
-          <p class="jello">s</p>
-          <p class="jello">t</p>
-          <p class="jello">e</p>
-          <p class="jello">(</p>
-          <p class="jello">)</p>
-          <p class="jello">;</p>
-          &nbsp;
-          <p class="jello">I</p>
-          <p class="jello">'</p>
-          <p class="jello">m</p>
-        </article>
-        <article id="name" data-aos="fade-up" data-aos-delay="200">
-          <p class="jello">M</p>
-          <p class="jello">a</p>
-          <p class="jello">h</p>
-          <p class="jello">m</p>
-          <p class="jello">o</p>
-          <p class="jello">u</p>
-          <p class="jello">d</p>
-          &nbsp;
-          <p class="jello">H</p>
-          <p class="jello">a</p>
-          <p class="jello">m</p>
-          <p class="jello">a</p>
-          <p class="jello">d</p>
-          <p class="jello">a</p>
-          <p class="jello">.</p>
-        </article>
+        .pricing {
+            background: #f4f4f4;
+            padding: 50px 0;
+        }
 
-        <article id="work" data-aos="fade-up" data-aos-delay="400">
-          <div>
-            <p class="jello">I</p>
-          </div>
-          <div>
-            <p class="jello">d</p>
-            <p class="jello">e</p>
-            <p class="jello">s</p>
-            <p class="jello">i</p>
-            <p class="jello">g</p>
-            <p class="jello">n</p>
-          </div>
-         
-          <div>
-            <p class="jello">w</p>
-            <p class="jello">e</p>
-            <p class="jello">b</p>
-            <p class="jello">.</p>
-          </div>
-        </article>
-        <p id="info-para" data-aos="fade-up" data-aos-delay="600">
-          Web Developer with experience in frontend design and backend development. 
-          I love web design and backend development, and I enjoy creating engaging and
-           innovative web interfaces.
-          <br/>
-          <br/>
-          I value simple content structure, clean design patterns, and thoughtful interactions.
-        </p>
-        <div class="contact-btn-div" data-aos="fade-up" data-aos-delay="800">
-          <a href="https://wa.me/201069715039" tabindex="-1">
-            <button class="letsTalkBtn">
-              <p class="letsTalkBtn-text">Let's Talk!</p>
-              <span class="letsTalkBtn-BG"></span>
-            </button></a>
-          <div class="setting-container" id="setting-container">
-            <input type="checkbox" id="switchforsetting" onclick="settingtoggle()" />
+        .pricing .pricing-box {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
 
-            <label for="switchforsetting" class="needtobeinvert" id="labelforsetting" tabindex="0"
-              aria-label="settings for sound and appearance"></label>
+        .pricing .pricing-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
 
-            <div class="visualmodetogglebuttoncontainer" id="visualmodetogglebuttoncontainer">
-              <input type="checkbox" id="switchforvisualmode" onclick="visualmode()" />
-              <label for="switchforvisualmode" id="labelforvisualmode" tabindex="0"
-                aria-label="switch appearance"></label>
-            </div>
+        .pricing .pricing-box ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
 
-            <div class="soundtogglebuttoncontainer" id="soundtogglebuttoncontainer">
-              <input type="checkbox" id="switchforsound" onclick="playpause()" />
-              <label for="switchforsound" id="labelforsound" tabindex="0" aria-label="switch sound"
-                class="needtobeinvert"></label>
-            </div>
-          </div>
-          <!-- setting div ends -->
-        </div>
-        <!-- contact-btn-div -->
-      </div>
-     
-    </section>
-    <!-- landing page ends here -->
-    <section class="about-section-container" id="about" data-aos="fade-up">
-      <div class="about-section">
-        <div class="section-heading">
-          <h2 class="section-heading-article" tabindex="0" aria-label="About me heading">
-            &#60;/AboutMe&#62;
-          </h2>
-          <p class="sectionHeadingP"></p>
-        </div>
+        .pricing .pricing-box ul li {
+            margin-bottom: 10px;
+        }
 
-        <div class="info-dp-section">
-          <div class="about-info">
-            <p tabindex="0">
-              Hi! My name is Mahmoud. I'm a web developer and digital visual artist.
-               I love creating things that exist on the internet. My interest in web 
-               development started in 2023 when I decided to upload my digital concept arts online.
-            </p>
-            <br />
-            <p tabindex="0">
-              Instead of creating an online concept art website, 
-              I started enjoying web development. Creating custom solutions 
-              for the web taught me a lot about design & development!
-            </p>
-            <br />
-            <p tabindex="0">
-              These days, my main focus is on building creative and exciting web designs. 
-              I like to code things from scratch and enjoy bringing ideas to life in the browser.
-            </p>
-            
-             <!-- Resume button -->
-      <button class="resume-btn" id="resume-btn" onclick="openURL()">
-        <div class="sign">
-          <svg viewBox="0 0 640 512">
-            <path
-              d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z" />
-          </svg>
-        </div>
+        .testimonials {
+            padding: 50px 0;
+        }
 
-        <div class="text">Resume</div>
-      </button>
-          </div>
+        .testimonials .testimonial-box {
+            background: #f4f4f4;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
 
-          <div class="dp" data-aos="fade-up">
-            <img src="src/webp/mh.jpg" alt="mahmoud hamada" tabindex="0" aria-label="image of vinod" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- about section ends  -->
+        .testimonials .testimonial-box p {
+            font-style: italic;
+        }
+       
+        .testimonials .testimonial-box h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
 
-    <section class="skills-section-container" id="skills">
-      <div class="skills-section">
-        <div class="section-heading" data-aos="fade-up">
-          <h2 class="section-heading-article" tabindex="0" aria-label="skills heading">
-            &#60;/Skills&#62;
-          </h2>
-          <p class="sectionHeadingP"></p>
-        </div>
+        .contact {
+            padding: 50px 0;
+        }
 
-        <div class="frontend-dev-section">
-          <h3 class="frontend-dev-heading" data-aos="fade-up" tabindex="0"
-            aria-label="As a frontend a developer these are the skills i have">
-            Tech Stack
-          </h3>
-          <ul class="tech-stack-wrapper">
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/htmllogo.png" alt="Html skill" class="tech-stack-logo" />
-              <span class="tooltip">HTML</span>
-            </li>
+        .contact h2 {
+            margin-bottom: 30px;
+        }
 
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/csslogo.png" alt="css skill" class="tech-stack-logo" />
-              <span class="tooltip">CSS</span>
-            </li>
+        .contact .form-control {
+            border-radius: 0;
+        }
 
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/jslogo.png" alt="js skill" class="tech-stack-logo" />
-              <span class="tooltip">JS</span>
-            </li>
+        .contact button {
+            border-radius: 0;
+            background-color: #ff6600;
+            border-color: #ff6600;
+        }
 
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/php.png" alt="php skill" class="tech-stack-logo" />
-              <span class="tooltip">PHP</span>
-            </li>
+        .contact button:hover {
+            background-color: #ff3300;
+            border-color: #ff3300;
+        }
 
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/mysql.png" alt="MySQL skill" class="tech-stack-logo" />
-              <span class="tooltip">MySQL</span>
-            </li>
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/githublogo.png" alt="github skill" class="tech-stack-logo" />
-              <span class="tooltip">GitHub</span>
-            </li>
+        .navbar {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            background-color: #333;
+        }
 
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/bootstraplogo.png" alt="bootstrap skill" class="tech-stack-logo" />
-              <span class="tooltip">BOOTSTRAP</span>
-            </li>
+        .btn {
+            background-color: #ff6600;
+            border-color: #ff6600;
+        }
 
-            
+        .btn:hover {
+            background-color: #5b0000;
+        }
 
-            <li class="tech-stack-box" data-aos="fade-up">
-              <img src="./src/png/canvalogo.png" alt="canva skill" class="tech-stack-logo" />
-              <span class="tooltip">CANVA</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <!-- skills section ends -->
-    <section class="projects-section-container" id="projects">
-      <div class="projects-section-div">
-        <div class="section-heading" data-aos="fade-up">
-          <h2 class="section-heading-article" tabindex="0" aria-label="My projects starts from here">
-            &#60;/Projects&#62;
-          </h2>
-          <p class="sectionHeadingP"></p>
-        </div>
-        <div class="project-boxes-div">
-          <div data-aos="fade-up" class="project-box-wrapper">
-            <div class="project-box project-box2" id="project-box2">
-              <div class="info-div">
-                <img src="src/ico/daren.png" alt="pexelicon website favicon" class="faviconforProject" />
-                <article class="ProjectHeading">Daren-Store</article>
-                <p class="ProjectDescription">
-                  It is a product showcase website designed for display purposes only, specializing in makeup and women's clothing. It was solely designed and built by me, and it includes a database. The site was developed using MySQL, PHP, CSS, HTML, and JavaScript.
+        /* Dark Theme Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-mode .fab {
+            color: #fff;
+        }
+        body.dark-mode .fab:hover {
+            color: #c66007;
+        }
+        body.dark-mode .header {
+            background: url('src/webp/bg.png') no-repeat center center/cover;
+            color: white;
+        }
 
-                </p>
-                <div class="project-buttons">
-                  <a href="https://github.com/mahmoudhamadaa" target="_blank" class="github-redirect"
-                    aria-label="Visit Pexelicons on GitHub">
-                    <img src="src/svg/github.svg" alt="github redirect button" />
-                  </a>
-                  <a href="http://daren.is-great.net/?i=1" target="_blank" class="cta"
-                    aria-label="Visit Pexelicons Live">
-                    <span>Live view</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
+        body.dark-mode .navbar {
+            background-color: #1f1f1f;
+        }
+
+        body.dark-mode .btn:hover {
+            background-color: #3700b3;
+            border-color: #3700b3;
+        }
+
+        body.dark-mode .feature-box,
+        body.dark-mode .pricing-box,
+        body.dark-mode .testimonial-box,
+        body.dark-mode .contact {
+            background-color: #333;
+            color: #ffffff;
+        }
+
+        body.dark-mode .social-media {
+            background: #333;
+        }
+
+        body.dark-mode .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255,255,255,.55);
+        }
+
+        .btn-outline-light {
+            color: #fff;
+            border-color: #fff;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: transparent; /* إزالة الخلفية */
+        }
+
+        .btn-outline-light:hover {
+            color: #333;
+            background-color: transparent; /* إزالة الخلفية عند التحويم */
+            border-color: #fff;
+        }
+
+        body.dark-mode .btn-outline-light {
+            color: #bbb;
+            border-color: #bbb;
+        }
+
+        body.dark-mode .btn-outline-light:hover {
+            color: #fff;
+            background-color: transparent; /* إزالة الخلفية عند التحويم في الوضع الليلي */
+            border-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">M-<b style="color: #ff6600;">H</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item">
+                            <button id="toggle-theme" class="btn btn-outline-light">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-              <div class="image-div">
-                <img src="src/webp/daren.png" alt="Pexelicon website preview image" />
-              </div>
+            </nav>
+            <div class="header-content text-center">
+                <a class="nav" href="#" style="color: #ddd; font-size: 70px;">M-<b style="color: #ff6600;">H</b></a>
+                <h1 style="text-align:start;">Modern Axure Template For <br>Beautiful Prototypes</h1>
+                <p style="text-align:start;">Launch your fully functional prototype in just 24 hours.<br> Configure everything with ease.</p>
+                <a href="#" class="btn btn-primary" style="justify-content:start; background-color: #ff6600; border: #ff3300; float: left;">Download</a>
             </div>
-          </div>
-
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box5" id="project-box5">
-              <div class="info-div">
-                <img src="src/ico/iconmh.png" alt="comickaze website favicon"
-                  class="faviconforProject" />
-                <article class="ProjectHeading">Portfolio</article>
-                <p class="ProjectDescription">
-                  It is a personal portfolio that I built for myself using HTML and CSS.
-
-                </p>
-                
-                  <div class="project-buttons">
-                    <a href="https://github.com/mahmoudhamadaa" target="_blank" class="github-redirect"
-                      aria-label="Visit Pexelicons on GitHub">
-                      <img src="src/svg/github.svg" alt="github redirect button" />
-                    </a>
-                  <a href="https://mahmoudhamadaa.github.io/portfolio-m.h/" target="_blank" class="cta" aria-label="Visit Comickaze live">
-                    <span>Live view</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="image-div">
-                <img src="src/webp/p-mh.png" alt="comickaze website preview image" />
-              </div>
-            </div>
-          </div>
-
-          <!-- ---------------------- -->
-           
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box5" id="project-box5">
-              <div class="info-div">
-                <img src="src/ico/iconmh.png" alt="comickaze website favicon"
-                  class="faviconforProject" />
-                <article class="ProjectHeading">Digital-Clock</article>
-                <p class="ProjectDescription">
-                  It is a digital clock that I created using JavaScript, CSS, 
-                  and HTML, with an animated background to make it more engaging.
-
-                </p>
-                <div class="project-buttons">
-                  <a href="https://github.com/mahmoudhamadaa" target="_blank" class="github-redirect"
-                    aria-label="Visit Pexelicons on GitHub">
-                    <img src="src/svg/github.svg" alt="github redirect button" />
-                  </a>
-                  <a href="https://mahmoudhamadaa.github.io/digital-colock/" target="_blank" class="cta" aria-label="Visit Comickaze live">
-                    <span>Live view</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="image-div">
-                <img src="src/webp/digitalclock.png" alt="comickaze website preview image" />
-              </div>
-            </div>
-          </div>
- <!-- ---------------------- -->
-           
- <div class="project-box-wrapper" data-aos="fade-up">
-  <div class="project-box project-box5" id="project-box5">
-    <div class="info-div">
-      <img src="src/ico/iconmh.png" alt="comickaze website favicon"
-        class="faviconforProject" />
-      <article class="ProjectHeading">M-H</article>
-      <p class="ProjectDescription">
-        It is a demo website I built to suit the needs of companies that prefer 
-        showcasing their features. It is a very simple yet attractive site, 
-        developed using HTML, CSS, JavaScript, and Bootstrap.
-
-
-      </p>
-      <div class="project-buttons">
-        <a href="https://github.com/mahmoudhamadaa" target="_blank" class="github-redirect"
-          aria-label="Visit Pexelicons on GitHub">
-          <img src="src/svg/github.svg" alt="github redirect button" />
-        </a>
-        <a href="M-H.html" target="_blank" class="cta" aria-label="Visit Comickaze live">
-          <span>Live view</span>
-          <svg viewBox="0 0 13 10" height="10px" width="15px">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div class="image-div">
-      <img src="src/webp/test.png" alt="comickaze website preview image" />
-    </div>
-  </div>
-</div>
- <!-- ---------------------- -->
-           
- <div class="project-box-wrapper" data-aos="fade-up">
-  <div class="project-box project-box5" id="project-box5">
-    <div class="info-div">
-      <img src="src/ico/logo.png" alt="comickaze website favicon"
-        class="faviconforProject" />
-      <article class="ProjectHeading">Ahly SC</article>
-      <p class="ProjectDescription">
-        "This is a demo website for Al Ahly SC, showcasing the club’s achievements.
-         Built with HTML, CSS, JavaScript, and Bootstrap, it offers a responsive and
-          modern design tailored for fans."
-
-
-
-
-
-
-      </p>
-      <div class="project-buttons">
-        <a href="https://github.com/mahmoudhamadaa" target="_blank" class="github-redirect"
-          aria-label="Visit Pexelicons on GitHub">
-          <img src="src/svg/github.svg" alt="github redirect button" />
-        </a>
-        <a href="https://mahmoudhamadaa.github.io/Alahly-club/" target="_blank" class="cta" aria-label="Visit Comickaze live">
-          <span>Live view</span>
-          <svg viewBox="0 0 13 10" height="10px" width="15px">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div class="image-div">
-      <img src="src/webp/ahly.png" alt="comickaze website preview image" />
-    </div>
-  </div>
-</div>
- <!-- ---------------------- -->
- <div class="project-box-wrapper" data-aos="fade-up">
-  <div class="project-box project-box5" id="project-box5">
-    <div class="info-div">
-      <img src="src/ico/ROPA.png" alt="comickaze website favicon"
-        class="faviconforProject" />
-      <article class="ProjectHeading">RUPA-CAKE</article>
-      <p class="ProjectDescription">
-        RUPA-CAKE is an innovative online platform for selling cakes and desserts,
-         allowing customers to easily customize their orders and book cakes for 
-         events with flexible payment options and guaranteed delivery service.
-
-      </p>
-      <div class="project-buttons">
-        <a href="https://github.com/mahmoudhamadaa" target="_blank" class="github-redirect"
-          aria-label="Visit Pexelicons on GitHub">
-          <img src="src/svg/github.svg" alt="github redirect button" />
-        </a>
-        <a href="https://mahmoudhamadaa.github.io/Rupa-Cake/" target="_blank" class="cta" aria-label="Visit Comickaze live">
-          <span>Live view</span>
-          <svg viewBox="0 0 13 10" height="10px" width="15px">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <div class="image-div">
-      <img src="src/webp/RUPA.png" alt="comickaze website preview image" />
-    </div>
-  </div>
-</div>
-<!-- ---------------------- -->
-
         </div>
-      </div>
+    </header>
+
+    <section class="social-media">
+        <div class="container text-center">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
     </section>
-  </main>
-  <!-- main ends here -->
 
-  <footer id="footer">
-    <button class="fas" id="backtotopbutton" onclick="scrolltoTopfunction()">
-      <article aria-label="Back to top">&#8592;BACK TO TOP</article>
-    </button>
-    <div class="footer-background">
-      <div class="footer-blob"></div>
-    </div>
-    <div class="footer-foreground">
-      <div class="footercontainer">
-        <div class="two-words">
-          <article tabindex="0" aria-label="Learning, Living, and Leveling Up, my quote">
-            "Learning, Living, and Leveling Up."
-          </article>
-        </div>
-        <div class="social-media-container">
-          <div class="getintouch-heading">
-            <article>GetinTouch();</article>
-          </div>
-          <div class="logos">
-            <a href="https://www.instagram.com/mahmoud_mohamed_abdellah_nasr?igsh=MXd5Zzg2YnBvbTJlMQ==" target="_blank" tabindex="0"
-              aria-label="My instagram"><svg viewBox="0 0 448 512" class="SocialHandle">
-                <path
-                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-              </svg></a>
-
-            <a href="https://www.linkedin.com/in/mahmoud-mohamed-647440172" target="_blank"
-              aria-label="My Linkdin"><svg class="SocialHandle" viewBox="0 0 448 512">
-                <path
-                  d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
-              </svg></a>
-
-              <a href="https://www.facebook.com/mahmoudhamada65?mibextid=kFxxJD" target="_blank" aria-label="My Facebook">
-                <svg viewBox="0 0 320 512" class="SocialHandle">
-                  <path
-                    d="M279.14 288l14.22-92.66h-88.91V141.09c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.1 44.38-121.1 124.72v70.62H22.89V288h81.36v224h100.17V288z"/>
-                </svg>
-              </a>
-              
-
-            <a href="mailto:mahmoud.m.a.1358@gmail.com" target="_blank" aria-label="My G mail"><svg id="GmailLogo"
-                viewBox="0 0 512 512">
-                <path
-                  d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
-              </svg></a>
-          </div>
-        </div>
-        <div class="footer-avatar-container">
-          <img src="src/png/footer-avatar-m-h.png" alt="animation-head" class="footer-avatar-img" id="footer-wala-avatar"/>
-          <div class="footer-avatar-face">
-            <div class="footer-avatar-eye footer-right-eye">
-
-              <div class="footer-pupil"></div>
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Take With North</h3>
+                        <p>Experience the best tools and features to manage your projects effectively.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Boost Performance</h3>
+                        <p>Enhance your productivity with our advanced solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-globe"></i>
+                        <h3>Global Access</h3>
+                        <p>Connect and collaborate with teams worldwide with our global features.</p>
+                    </div>
+                </div>
             </div>
-            <div class="footer-avatar-eye footer-left-eye">
+        </div>
+    </section>
 
-              <div class="footer-pupil"></div>
+    <section class="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-box text-center">
+                        <h3>Basic Plan</h3>
+                        <ul>
+                            <li>Up to 5 Projects</li>
+                            <li>Basic Support</li>
+                            <li>1 GB Storage</li>
+                        </ul>
+                        <p><strong>$29/month</strong></p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-box text-center">
+                        <h3>Standard Plan</h3>
+                        <ul>
+                            <li>Up to 15 Projects</li>
+                            <li>Priority Support</li>
+                            <li>5 GB Storage</li>
+                        </ul>
+                        <p><strong>$59/month</strong></p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-box text-center">
+                        <h3>Premium Plan</h3>
+                        <ul>
+                            <li>Unlimited Projects</li>
+                            <li>24/7 Support</li>
+                            <li>Unlimited Storage</li>
+                        </ul>
+                        <p><strong>$99/month</strong></p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="footer-bottom">
-          <article>
-            Design & Built by Mahmoud hamada
-            &#169; 2024
-          </article>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-box text-center">
+                        <p>"This template has transformed our workflow. It's incredibly intuitive and easy to use."</p>
+                        <h3>John Doe</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-box text-center">
+                        <p>"Excellent design and functionality. Our team loves using it for our projects."</p>
+                        <h3>Jane Smith</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  <!-- footer ends here -->
+    </section>
 
-  <script src="main.js"></script>
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <!-- Bootstrap JS from CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome JS from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 
-  <script>
-    function openURL() {
-      var url = "src/pdf/cv.pdf";
-
-      window.open(url, "_blank");
-    }
-  </script>
-
-  <script>
-    const cursorInner = document.getElementById("cursor-inner");
-    const cursorOuter = document.getElementById("cursor-outer");
-    const links = document.querySelectorAll("a,label,button");
-
-    document.addEventListener("mousemove", function (e) {
-      const posX = e.clientX;
-      const posY = e.clientY;
-
-      cursorInner.style.left = `${posX}px`;
-      cursorInner.style.top = `${posY}px`;
-
-   
-
-      cursorOuter.animate(
-        {
-          left: `${posX}px`,
-          top: `${posY}px`,
-        },
-        { duration: 500, fill: "forwards" }
-      );
-
-      links.forEach((link) => {
-        link.addEventListener("mouseenter", () => {
-          cursorInner.classList.add("hover");
-          cursorOuter.classList.add("hover");
+    <script>
+        document.getElementById('toggle-theme').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('#toggle-theme i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
         });
-        link.addEventListener("mouseleave", () => {
-          cursorInner.classList.remove("hover");
-          cursorOuter.classList.remove("hover");
-        });
-      });
-    });
-  </script>
+    </script>
 </body>
-
 </html>
