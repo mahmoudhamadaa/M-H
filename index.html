@@ -32,6 +32,7 @@ What are you doing here?! you sneaky developer... -->
 
   <title>Mahmoud Hamada | Portfolio</title>
   <link rel="icon" type="image/x-icon" href="src/ico/iconmh.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- aos cdn -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <!-- stylesheet -->
@@ -39,8 +40,125 @@ What are you doing here?! you sneaky developer... -->
   <!-- google fonts-->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Orbitron&family=Fira+Code&family=Six+Caps" />
+  
+<style>
+    .contact-icon {
+      z-index:9999;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background:linear-gradient(145deg,#ca8afff2 ,#0272ceb8); /* نفس اللون المستخدم في البورتفوليو */
+            color: white;
+            padding: 18px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
+        .contact-icon:hover {
+            background-color: #6e45a0; /* تأثير عند المرور */
+            transform: scale(1.1);
+        }
+
+        /* نموذج التواصل */
+        #contact-form {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 450px; /* زيادة العرض ليكون أكبر */
+            height: auto; /* جعل الارتفاع تلقائي حسب المحتوى */
+            background: #ffffff38;
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            transform: translateY(50px);
+        }
+
+        #contact-form h2 {
+            text-align: center;
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* تخصيص الخريطة داخل النموذج */
+        .map-container {
+            width: 100%;
+            height: 250px; /* تكبير الخريطة */
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* تصميم الحقول */
+        #contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        #contact-form label {
+            font-size: 14px;
+            color: #302f2f;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            background-color: #ffffff53;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
+
+  
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            border-color: #8f04f9;
+        }
+
+        #contact-form button {
+            width: 100%;
+            background:linear-gradient(145deg,#ca8afff2 ,#0272ceb8); /* نفس اللون المستخدم في البورتفوليو */
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button:hover {
+          background:linear-gradient(145deg,#a948f3f2 ,#0272);
+    
+        }
+
+
+        /* رسالة الشكر */
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            font-size: 16px;
+            color: #2697f3;
+            margin-top: 20px;
+            transition: opacity 0.5s ease;
+        }
+       
+</style>
 <body class="body light-mode" >
+ 
   <audio loop="" id="audioPlayer" style="display: none">
     <source src="src/mp3/preloader.mp3" type="audio/mp3" />
   </audio>
@@ -89,7 +207,86 @@ What are you doing here?! you sneaky developer... -->
     </div>
   </header>
   <!-- header ends here -->
+  <div class="contact-icon" onclick="toggleContactForm()"><i class="fa-solid fa-comments fa-fade"></i>
 
+  </div>
+
+  <!-- Contact Form -->
+  <div id="contact-form">
+      <h2>Contact Me</h2>
+  
+      <!-- Map -->
+      <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7134.257825228709!2d31.776264456345242!3d26.612314349539208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x144f5d712ffd8b7f%3A0x7cb54d2bb2a40e6c!2z2KfZhNiz2YTYp9mF2YjZhtmK2Iwg2YXYsdmD2LIg2KPYrtmF2YrZhdiMINmF2K3Yp9mB2LjYqSDYs9mI2YfYp9is!5e0!3m2!1sar!2seg!4v1730931425585!5m2!1sar!2seg" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  
+      <form id="form" action="https://formspree.io/f/manyojdo" method="POST">
+          <!-- Name -->
+          <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required style="background:#ffffff53;">
+          </div>
+          
+          <!-- Email -->
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          
+          <!-- Message -->
+          <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+  
+          <!-- Submit Button -->
+          <button type="submit">Send Message <i class="fa-solid fa-paper-plane"></i>
+          </button>
+      </form>
+  
+      <!-- Thank You Message -->
+      <div class="thank-you-message" id="thankYouMessage">
+          <p>Thank you! Your message has been sent successfully.</p>
+      </div>
+  </div>
+  
+  <script>
+      // Toggle Contact Form
+      function toggleContactForm() {
+          var form = document.getElementById('contact-form');
+          form.style.display = form.style.display === 'block' ? 'none' : 'block';
+          if (form.style.display === 'block') {
+              form.style.transform = 'translateY(0)';
+          }
+      }
+  
+      // Form Submission and Thank You Message
+      document.getElementById('form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+  
+          // Send form data to Formspree
+          fetch('https://formspree.io/f/manyojdo', {
+              method: 'POST',
+              headers: {
+                  'Accept': 'application/json'
+              },
+              body: new FormData(event.target)
+          }).then(response => {
+              if (response.ok) {
+                  // Display Thank You Message
+                  document.getElementById('thankYouMessage').style.display = 'block';
+                  document.getElementById('thankYouMessage').style.opacity = '1';
+  
+                  // Hide form and message after a few seconds
+                  setTimeout(function() {
+                      document.getElementById('thankYouMessage').style.display = 'none';
+                      document.getElementById('contact-form').style.display = 'none';
+                  }, 5000);
+              }
+          });
+      });
+  </script>
   <main>
     <!-- hamburger -->
     <div class="hamburger" id="hamburger" data-aos="fade">
